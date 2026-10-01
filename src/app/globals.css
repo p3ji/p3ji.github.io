@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
+button, select, a { touch-action: manipulation; }
+::selection { background: #cde6e2; color: #172b3a; }
+
+.field-select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #d9e1e4;
+  border-radius: 10px;
+  background: white;
+  padding: 0.55rem 0.75rem;
+  color: #172b3a;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.field-select:focus-visible {
+  outline: 2px solid #173d62;
+  outline-offset: 2px;
+}
