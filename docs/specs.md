@@ -2,7 +2,7 @@
 
 **Version:** 1.1 working specification · **Updated:** 2026-10-03
 **Scope:** Ottawa, Ontario, and federal service discovery
-**Public identity:** Civik Ottawa, an independent, free, open-source information site and one-stop service design proposal. Intended address: civik.peji.ca (DNS and hosting unverified).
+**Public identity:** Civik Ottawa, an independent, free, open-source information site and one-stop service design proposal. Published prototype: https://civik.peji.ca/.
 **History:** The [original proposal](./specs-v1-draft.md) is preserved. The [spec review](./spec-review.md) records the source checks behind this revision.
 
 ## 1. Product promise and boundaries

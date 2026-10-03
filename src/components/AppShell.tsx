@@ -32,7 +32,7 @@ function AppChrome({ children }: { children: React.ReactNode }) {
 
       <footer className="mt-20 border-t border-line bg-white pb-[max(2rem,env(safe-area-inset-bottom))]">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <div><p className="font-semibold text-ink">Civik Ottawa</p><p className="mt-1 max-w-xl leading-6">Independent, free, open-source information site and one-stop service design prototype. This is a curated demo; check official sites for current eligibility and applications.</p><p className="mt-1 text-xs">Intended public address: civik.peji.ca</p></div>
+          <div><p className="font-semibold text-ink">Civik Ottawa</p><p className="mt-1 max-w-xl leading-6">Independent, free, open-source information site and one-stop service design prototype. This is a curated demo; check official sites for current eligibility and applications.</p><p className="mt-1 text-xs">Public address: civik.peji.ca</p></div>
           <a href="https://www.canada.ca/en/services/benefits.html" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1 self-start font-semibold text-navy underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-navy">Government of Canada benefits <ArrowUpRight size={16} aria-hidden="true" /><span className="sr-only">(opens in a new tab)</span></a>
         </div>
       </footer>

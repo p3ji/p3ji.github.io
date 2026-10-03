@@ -1,12 +1,15 @@
 # Civik Ottawa
 
-Free, open-source information site and interactive design proposal for a needs-based, cross-government one-stop experience. Ottawa is the first geographic focus. Intended public address: civik.peji.ca. The current app is a frontend prototype.
+Free, open-source information site and interactive design proposal for a needs-based, cross-government one-stop experience. Ottawa is the first geographic focus. Public address: https://civik.peji.ca/. The current app is a frontend prototype.
 
 ## Stack
 Next.js App Router, React, strict TypeScript, Tailwind CSS, and lucide-react. Data and watchlist state are local to the browser.
 
 ## Run
 `npm install` then `npm run dev`.
+
+## Publish
+GitHub Pages deploys from `.github/workflows/deploy.yml` after a push to `main`: `git push origin main`. Verify https://civik.peji.ca/ after the workflow succeeds. The source repository is https://github.com/p3ji/p3ji.github.io.
 
 ## Rules
 - Mobile-first; verify layouts at 375px wide and use 44px minimum touch targets.

@@ -1,6 +1,6 @@
 # Civik Ottawa — Phase 2 showcase brief
 
-**Purpose:** Give residents and prospective public partners a concrete demonstration of needs-first discovery today and a credible vision of a true one-stop service. This is the **final public deliverable before agency outreach**. The intended address is civik.peji.ca, pending domain setup.
+**Purpose:** Give residents and prospective public partners a concrete demonstration of needs-first discovery today and a credible vision of a true one-stop service. This is the **final public deliverable before agency outreach**. The Phase 1 prototype is live at https://civik.peji.ca/.
 
 ## Audience and core message
 

@@ -2,7 +2,7 @@
 
 **Updated:** 2026-10-03
 **Identity:** Independent, free, open-source information site and interactive design proposal
-**Intended address:** civik.peji.ca (DNS, HTTPS, and hosting unverified)
+**Public address:** https://civik.peji.ca/ (GitHub Pages; DNS and HTTPS verified 2026-10-03)
 **First geography:** Ottawa, Ontario, and federal services
 **Finish line before government outreach:** **Phase 2**, a usable public discovery product plus a polished, evidence-backed future-state showcase and marketing package.
 
@@ -18,7 +18,7 @@ Visitors must always be able to tell **source-backed information** from a **simu
 
 | Stage | Target window | Public result | Release gate |
 | --- | --- | --- | --- |
-| **Current frontend prototype** | Now | Life-event catalogue, local filters, scripted assistant, watchlist | Clearly marked demo; rebrand and privacy changes in progress |
+| **Current frontend prototype** | Now | Life-event catalogue, local filters, scripted assistant, watchlist, published site | Clearly marked demo; rebrand and browser-storage changes implemented |
 | **Phase 1 — Ottawa discovery** | Weeks 1–6 | Anonymous needs-first exploration, reviewed Ottawa/Ontario/federal records, local conditional rules, official handoffs | Source provenance, correct rules, accessible mobile journey, and no sensitive profile persistence |
 | **Phase 2 — public showcase** | Weeks 7–12 | Working Phase 1 site, synthetic one-stop experience, video, five-minute demo, one-pager, diagrams, evidence appendix, open-source release | Visitors distinguish working features from concepts; claims reviewed; public package usable without any agency integration |
 | **Optional agency adoption** | After Phase 2 | A partner may pilot one approved integration | Separate program authority, agreements, security/privacy review, supported APIs, and operational ownership |
@@ -29,7 +29,7 @@ The windows are planning ranges, not commitments. The Phase 2 package is the int
 
 ### 1. Frame and test the service
 
-- Put **Civik Ottawa** and the independent open-source identity in the interface, repository, and public materials. Use civik.peji.ca once DNS and HTTPS are verified.
+- Put **Civik Ottawa** and the independent open-source identity in the interface, repository, and public materials. The prototype is live at civik.peji.ca.
 - Start with “Having a baby or caring for a young child in Ottawa.” Map the journey from need → federal/Ontario/municipal suggestions → reasons and unknowns → official links.
 - Test the labels, questions, and trust cues with Ottawa residents, including French speakers, people using assistive technology, newcomers, and people with low digital confidence.
 - Target WCAG 2.2 AA and test 375px layouts and 44px touch targets. [WCAG 2.2](https://www.w3.org/TR/WCAG22/)
@@ -72,7 +72,7 @@ The windows are planning ranges, not commitments. The Phase 2 package is the int
 - Produce the **90-second captioned video**, **five-minute live walkthrough**, **one-page brief**, **architecture/data-flow sheet**, **source and claims appendix**, and reproducible **open-source release** described in the [showcase brief](docs/phase-2-showcase.md).
 - Classify each public claim as **working**, **synthetic demonstration**, or **partner required**. Link every factual program claim to an official source and benefit period.
 - Exclude unsupported savings totals, blanket privacy/compliance guarantees, fictional government endpoints presented as live, and “approved” application states.
-- Verify civik.peji.ca and HTTPS before publishing the address as the canonical URL.
+- Keep civik.peji.ca and HTTPS working through each public release.
 
 **Phase 2 exit evidence:** the public can use the discovery site, understand the one-stop proposal, view a captioned demonstration, inspect its sources and code, and distinguish actual capabilities from future requirements. This completes the pre-outreach product.
 
@@ -84,9 +84,7 @@ Civik Ottawa remains a useful information site and design proposal even if no ag
 
 ## Immediate implementation backlog
 
-1. Rebrand the app and docs; set the intended domain to civik.peji.ca.
-2. Remove persisted household filters; keep an explicitly local watchlist of saved service IDs.
-3. Add Ottawa to the location filter and add source-linked, conditional Ottawa examples without claiming complete coverage.
-4. Implement a versioned service record and reviewer workflow for the first small pilot set.
-5. Create the separate synthetic future-state route and the Phase 2 assets.
-6. Run mobile, accessibility, source, privacy, and claim checks before public release.
+1. Implement a versioned service record and reviewer workflow for the first small pilot set.
+2. Expand source-reviewed Ottawa coverage while keeping conditional matches and official handoffs.
+3. Create the separate synthetic future-state route and the Phase 2 assets.
+4. Run mobile, accessibility, source, privacy, and claim checks for each release.

@@ -4,9 +4,9 @@ Reviewed 2026-10-03 against the [original proposal](./specs-v1-draft.md), the fr
 
 ## Product fit
 
-**Civik Ottawa replaces the Canada Connect brand.** Its intended public address is `civik.peji.ca`. Ottawa is the first geographic focus: a needs-first, cross-government discovery journey with transparent local rules and official handoffs. Phase 2 is the finished public showcase before agency outreach; it includes working discovery and clearly labelled future-state simulations. Real agency integrations remain a separate, optional path.
+**Civik Ottawa replaces the Canada Connect brand.** Its public prototype is at `civik.peji.ca`. Ottawa is the first geographic focus: a needs-first, cross-government discovery journey with transparent local rules and official handoffs. Phase 2 is the finished public showcase before agency outreach; it includes working discovery and clearly labelled future-state simulations. Real agency integrations remain a separate, optional path.
 
-This also reconciles a current mismatch: the Phase 1 prototype saves profile filters and watchlist IDs in `localStorage`, while the spec's anonymous MVP promises no persistent storage. Define an anonymous session mode for sensitive answers, with a separate, explicit opt-in for a locally saved watchlist. Do not describe the current prototype as zero-storage.
+The earlier Phase 1 prototype saved profile filters and watchlist IDs in `localStorage`. The published version keeps household answers in memory and saves only service IDs after a visitor opts into the local watchlist. Do not describe the site as zero-storage.
 
 ## Corrections before publishing eligibility rules
 
