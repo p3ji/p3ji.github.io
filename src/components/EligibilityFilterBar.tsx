@@ -70,7 +70,7 @@ export function EligibilityFilterBar() {
         </label>
 
         <label className="block text-sm font-semibold text-ink">
-          Household income
+          Household income (context only)
           <select
             value={profile.incomeTier}
             onChange={(event) => updateProfile({ incomeTier: event.target.value as typeof profile.incomeTier })}
@@ -97,7 +97,7 @@ export function EligibilityFilterBar() {
           </select>
         </label>
       </div>
-      <p className="mt-5 rounded-xl bg-[#f1f6f8] p-3 text-xs leading-5 text-muted">These filters only narrow the demo catalogue. The official program makes the eligibility decision.</p>
+      <p className="mt-5 rounded-xl bg-[#f1f6f8] p-3 text-xs leading-5 text-muted">Location and household filters help explore this demo. Income tiers do not exclude programs because official thresholds differ. Answers stay in memory; the program makes the final decision.</p>
     </aside>
   );
 }

@@ -12,6 +12,8 @@ export interface GovernmentService {
   summary: string;
   estimatedBenefit: string;
   officialUrl: string;
+  sourceLinks?: { label: string; url: string }[];
+  reviewedOn?: string;
   eligibilityCriteria: string[];
   /** Local demo matching only; final eligibility is decided by the program administrator. */
   incomeTiers?: Exclude<IncomeTier, "all">[];
@@ -69,7 +71,7 @@ export const provinces: { code: ProvinceCode; name: string }[] = [
 
 export const municipalitiesByProvince: Partial<Record<ProvinceCode, string[]>> = {
   AB: ["Calgary"],
-  ON: ["Toronto"],
+  ON: ["Ottawa", "Toronto"],
 };
 
 /** Curated demo entries. Recheck all descriptions and links before a production release. */
@@ -81,9 +83,14 @@ export const mockServices: GovernmentService[] = [
     regionCode: "CA",
     category: "having-a-baby",
     summary: "A monthly payment that helps eligible families with the cost of raising children under 18.",
-    estimatedBenefit: "Amount varies by family income and children",
+    estimatedBenefit: "Up to $679.75/month per eligible child under 6 (July 2026–June 2027); actual amount may be lower",
     officialUrl: "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit/how-apply.html",
-    eligibilityCriteria: ["Care for a child under 18", "Meet residence and status rules", "Family income affects payment amount"],
+    sourceLinks: [
+      { label: "CRA payment amounts", url: "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit/how-much.html" },
+      { label: "CRA eligibility", url: "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit/who-apply.html" },
+    ],
+    reviewedOn: "2026-10-03",
+    eligibilityCriteria: ["Care for a child under 18 and meet residence rules", "Several status categories may qualify, including some temporary residents", "Adjusted family net income affects the payment amount"],
     minChildren: 1,
     applicationNote: "Apply through birth registration, your CRA account, or by mail.",
   },
@@ -126,6 +133,34 @@ export const mockServices: GovernmentService[] = [
     incomeTiers: ["low", "middle"],
     minChildren: 1,
     applicationNote: "Assessment is automatic when you file taxes and qualify for the Canada Child Benefit.",
+  },
+  {
+    id: "ottawa-child-care",
+    title: "Ottawa Child Care Fee Subsidy",
+    jurisdiction: "MUNICIPAL",
+    regionCode: "Ottawa",
+    category: "having-a-baby",
+    summary: "The City may help eligible Ottawa families pay for licensed child care for children up to age 12.",
+    estimatedBenefit: "Amount depends on the City's assessment; no estimate shown",
+    officialUrl: "https://ottawa.ca/en/family-and-social-services/childrens-services/child-care-fee-subsidy/apply-child-care-fee-subsidy",
+    sourceLinks: [{ label: "City eligibility overview", url: "https://ottawa.ca/en/family-and-social-services/childrens-services/child-care-fee-subsidy/about" }],
+    reviewedOn: "2026-10-03",
+    eligibilityCriteria: ["Child is up to age 12", "An eligible licensed child care space is secured", "Financial need and a reason for care are assessed"],
+    applicationNote: "For ages 0–5, City guidance says the space must be in a CWELCC-participating program. Review the City process before applying.",
+  },
+  {
+    id: "ottawa-equipass",
+    title: "OC Transpo EquiPass",
+    jurisdiction: "MUNICIPAL",
+    regionCode: "Ottawa",
+    category: "having-a-baby",
+    summary: "Reduced transit fares for qualifying Ottawa residents; relevant to household affordability beyond this life event.",
+    estimatedBenefit: "Fare reduction depends on the current OC Transpo schedule",
+    officialUrl: "https://www.octranspo.com/images/files/fares/EquiPass_Application_2026_EN.pdf",
+    sourceLinks: [{ label: "OC Transpo 2026 criteria", url: "https://www.octranspo.com/images/files/fares/EquiPass_Customer_FAQ_ENG_2026.pdf" }],
+    reviewedOn: "2026-10-03",
+    eligibilityCriteria: ["Live in Ottawa and meet the program's conditions", "2026 materials use 2024 net family income and a 2024 LICO table", "Spouse income and exceptions may affect the assessment"],
+    applicationNote: "A broad income tier cannot confirm eligibility; check OC Transpo's current instructions.",
   },
   {
     id: "toronto-child-care",

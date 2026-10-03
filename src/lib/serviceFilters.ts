@@ -16,7 +16,7 @@ export interface HouseholdProfile {
 
 export const defaultProfile: HouseholdProfile = {
   province: "ON",
-  municipality: "",
+  municipality: "Ottawa",
   incomeTier: "all",
   children: 1,
   jurisdictions: ["FEDERAL", "PROVINCIAL", "MUNICIPAL"],
@@ -35,7 +35,7 @@ export function filterServices(
     if (!profile.jurisdictions.includes(service.jurisdiction)) return false;
     if (service.jurisdiction === "PROVINCIAL" && service.regionCode !== profile.province) return false;
     if (service.jurisdiction === "MUNICIPAL" && service.regionCode !== profile.municipality) return false;
-    if (profile.incomeTier !== "all" && service.incomeTiers && !service.incomeTiers.includes(profile.incomeTier)) return false;
+    // A coarse income tier cannot establish an official threshold. Keep the service visible.
     if (service.minChildren && profile.children < service.minChildren) return false;
     if (!query) return true;
     return [service.title, service.summary, service.regionCode, ...service.eligibilityCriteria]

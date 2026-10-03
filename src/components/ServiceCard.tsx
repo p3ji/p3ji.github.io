@@ -35,7 +35,7 @@ export function ServiceCard({ service, compact = false }: ServiceCardProps) {
           className={`inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${saved ? "bg-[#eaf4f1] text-[#236956]" : "bg-[#f2f5f6] text-navy hover:bg-[#e8eef2]"}`}
         >
           {saved ? <BookmarkCheck size={17} aria-hidden="true" /> : <Bookmark size={17} aria-hidden="true" />}
-          {saved ? "Saved" : "Save"}
+          {saved ? "Saved on this device" : "Save on this device"}
         </button>
       </div>
 
@@ -62,6 +62,7 @@ export function ServiceCard({ service, compact = false }: ServiceCardProps) {
       )}
 
       {service.applicationNote && <p className="mt-4 text-xs leading-5 text-muted">{service.applicationNote}</p>}
+      {service.reviewedOn && <p className="mt-3 text-xs text-muted">Official source checked: {service.reviewedOn}. Confirm current details with the program.</p>}
 
       <a
         href={service.officialUrl}
@@ -72,6 +73,11 @@ export function ServiceCard({ service, compact = false }: ServiceCardProps) {
         View official program <ArrowUpRight size={17} aria-hidden="true" />
         <span className="sr-only">(opens in a new tab)</span>
       </a>
+      {service.sourceLinks?.map((source) => (
+        <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer" className="ml-0 mt-2 inline-flex min-h-11 items-center gap-2 rounded-lg text-sm font-semibold text-navy underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy sm:ml-4">
+          {source.label} <ArrowUpRight size={17} aria-hidden="true" /><span className="sr-only">(opens in a new tab)</span>
+        </a>
+      ))}
     </article>
   );
 }

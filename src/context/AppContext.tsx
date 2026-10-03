@@ -1,16 +1,19 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { getService } from "@/data/mockServices";
 import { defaultProfile, type HouseholdProfile } from "@/lib/serviceFilters";
 
-const WATCHLIST_KEY = "canada-connect-watchlist-v1";
-const PROFILE_KEY = "canada-connect-profile-v1";
+const WATCHLIST_KEY = "civik-ottawa-watchlist-v1";
+const LEGACY_WATCHLIST_KEY = "canada-connect-watchlist-v1";
+const LEGACY_PROFILE_KEY = "canada-connect-profile-v1";
 
 interface AppContextValue {
   profile: HouseholdProfile;
   updateProfile: (patch: Partial<HouseholdProfile>) => void;
   savedIds: string[];
   toggleSaved: (id: string) => void;
+  clearSaved: () => void;
   isSaved: (id: string) => boolean;
   chatOpen: boolean;
   setChatOpen: (open: boolean) => void;
@@ -26,18 +29,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      const storedProfile = window.localStorage.getItem(PROFILE_KEY);
-      const storedWatchlist = window.localStorage.getItem(WATCHLIST_KEY);
-      if (storedProfile) {
-        const parsed = JSON.parse(storedProfile) as Partial<HouseholdProfile>;
-        if (parsed.province && parsed.jurisdictions) {
-          setProfile({ ...defaultProfile, ...parsed });
-        }
-      }
+      const storedWatchlist = window.localStorage.getItem(WATCHLIST_KEY) ?? window.localStorage.getItem(LEGACY_WATCHLIST_KEY);
       if (storedWatchlist) {
         const parsed: unknown = JSON.parse(storedWatchlist);
-        if (Array.isArray(parsed)) setSavedIds(parsed.filter((id): id is string => typeof id === "string"));
+        if (Array.isArray(parsed)) setSavedIds(parsed.filter((id): id is string => typeof id === "string" && Boolean(getService(id))));
       }
+      // The old prototype persisted household filters. Remove them during the rebrand.
+      window.localStorage.removeItem(LEGACY_PROFILE_KEY);
+      window.localStorage.removeItem(LEGACY_WATCHLIST_KEY);
     } catch {
       // Invalid or unavailable browser storage simply resets this demo's local state.
     }
@@ -47,12 +46,12 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!hydrated) return;
     try {
-      window.localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
-      window.localStorage.setItem(WATCHLIST_KEY, JSON.stringify(savedIds));
+      if (savedIds.length) window.localStorage.setItem(WATCHLIST_KEY, JSON.stringify(savedIds));
+      else window.localStorage.removeItem(WATCHLIST_KEY);
     } catch {
       // The app still works in memory when storage is disabled.
     }
-  }, [profile, savedIds, hydrated]);
+  }, [savedIds, hydrated]);
 
   const updateProfile = (patch: Partial<HouseholdProfile>) => {
     setProfile((current) => {
@@ -79,6 +78,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       updateProfile,
       savedIds,
       toggleSaved,
+      clearSaved: () => setSavedIds([]),
       isSaved: (id) => savedIds.includes(id),
       chatOpen,
       setChatOpen,

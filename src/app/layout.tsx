@@ -3,8 +3,9 @@ import { AppShell } from "@/components/AppShell";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Canada Connect | Discover services for life's moments",
-  description: "Explore a curated demo of Canadian government services by life event, region and household profile.",
+  title: "Civik Ottawa | Discover services by life need",
+  description: "Explore a curated, independent demo of federal, Ontario, and Ottawa services by life need.",
+  robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };

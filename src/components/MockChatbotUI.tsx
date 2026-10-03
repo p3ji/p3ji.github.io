@@ -14,7 +14,7 @@ type Message = {
 };
 
 const starterPrompts = [
-  "I am having a baby in Ontario",
+  "I am having a baby in Ottawa",
   "What if I live in Calgary?",
   "I lost my job in Ontario",
 ];
@@ -88,7 +88,7 @@ export function MockChatbotUI() {
         onClick={() => setChatOpen(true)}
         className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-4 z-30 inline-flex min-h-12 items-center gap-2 rounded-full bg-navy px-5 text-sm font-semibold text-white shadow-xl transition hover:bg-[#0d304e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy sm:right-6"
       >
-        <MessageCircle size={19} aria-hidden="true" /> Ask Canada Connect
+        <MessageCircle size={19} aria-hidden="true" /> Ask Civik Ottawa
       </button>
 
       {chatOpen && (

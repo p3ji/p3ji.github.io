@@ -31,14 +31,14 @@ export default function HomePage() {
           <div>
             <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-navy"><Compass size={15} aria-hidden="true" /> A simpler way to find support</p>
             <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-[3.65rem]">Find the right support for life&apos;s next chapter<span className="text-red">.</span></h1>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg">Explore federal, provincial and municipal services together. Start with what is happening in your life, then narrow the results to your location and household.</p>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg">Start with what is happening in your life. Explore federal, Ontario and Ottawa services together, with official links and clear next steps.</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a href="#life-events" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-navy px-6 text-sm font-semibold text-white hover:bg-[#0d304e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy">Explore life events <ArrowRight size={18} aria-hidden="true" /></a>
               <button type="button" onClick={() => setChatOpen(true)} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-navy bg-white px-6 text-sm font-semibold text-navy hover:bg-[#f7fbfc] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"><Sparkles size={18} aria-hidden="true" /> Ask the assistant</button>
             </div>
           </div>
           <div className="rounded-[28px] border border-white/90 bg-white/95 p-5 shadow-[0_24px_70px_rgba(23,61,98,0.12)] sm:p-7">
-            <div className="flex items-center justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">One place to explore</p><h2 className="mt-2 text-xl font-semibold text-ink">Services across Canada</h2></div><span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#fff0ee] text-red"><ShieldCheck size={24} aria-hidden="true" /></span></div>
+            <div className="flex items-center justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">Ottawa pilot</p><h2 className="mt-2 text-xl font-semibold text-ink">Support across governments</h2></div><span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#fff0ee] text-red"><ShieldCheck size={24} aria-hidden="true" /></span></div>
             <div className="mt-6 space-y-3">
               {[
                 ["01", "Federal programs", "Canada-wide support"],
@@ -46,7 +46,7 @@ export default function HomePage() {
                 ["03", "Municipal services", "Help close to home"],
               ].map(([number, title, detail]) => <div key={number} className="flex items-center gap-4 rounded-xl border border-line px-4 py-3"><span className="text-sm font-bold text-red">{number}</span><div><p className="text-sm font-semibold text-ink">{title}</p><p className="text-xs text-muted">{detail}</p></div></div>)}
             </div>
-            <p className="mt-5 text-xs leading-5 text-muted">Every result in this demo points to an official government page.</p>
+            <p className="mt-5 text-xs leading-5 text-muted">This is a small, curated demo catalogue. Program owners decide eligibility; every result links to an official page.</p>
           </div>
         </div>
       </section>

@@ -11,8 +11,8 @@ export interface MockAssistantReply {
 export function getMockAssistantReply(question: string, profile: HouseholdProfile): MockAssistantReply {
   const normalized = question.toLowerCase();
   const province = provinces.find((item) => normalized.includes(item.name.toLowerCase()) || new RegExp(`\\b${item.code.toLowerCase()}\\b`).test(normalized));
-  const city = normalized.includes("toronto") ? "Toronto" : normalized.includes("calgary") ? "Calgary" : undefined;
-  const inferredProvince: ProvinceCode | undefined = city === "Toronto" ? "ON" : city === "Calgary" ? "AB" : province?.code;
+  const city = normalized.includes("ottawa") ? "Ottawa" : normalized.includes("toronto") ? "Toronto" : normalized.includes("calgary") ? "Calgary" : undefined;
+  const inferredProvince: ProvinceCode | undefined = city === "Ottawa" || city === "Toronto" ? "ON" : city === "Calgary" ? "AB" : province?.code;
   const provinceChanged = inferredProvince && inferredProvince !== profile.province;
   const profilePatch: Partial<HouseholdProfile> = {
     ...(inferredProvince ? { province: inferredProvince } : {}),
@@ -41,13 +41,10 @@ export function getMockAssistantReply(question: string, profile: HouseholdProfil
     };
   }
 
-  const needsIncome = effectiveProfile.incomeTier === "all" && services.some((service) => service.incomeTiers);
-  const followUp = needsIncome
-    ? " An approximate household income range could narrow the income-tested options."
-    : " Review each program's criteria on its official page before applying.";
+  const followUp = " Income and other details may affect eligibility; review each program's criteria on its official page.";
 
   return {
-    text: `For ${eventName} in ${place}, these ${services.length} official programs may be relevant.${followUp} This is a scripted guide, not an eligibility decision.`,
+    text: `For ${eventName} in ${place}, these ${services.length} listed services may be relevant.${followUp} This is a scripted guide, not an eligibility decision.`,
     serviceIds: services.map((service) => service.id),
     profilePatch,
   };
